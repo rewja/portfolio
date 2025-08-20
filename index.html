@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="moon-container" id="moonArea">
+        <div class="moon"></div>
+        <div class="hi-text">Hi!</div>
+      </div>
+
+      <div class="message-text" id="message">welcome to nin's area!</div>
+
+      <div class="wave wave1"></div>
+      <div class="wave wave2"></div>
+      <div class="wave wave3"></div>
+      <div class="wave wave4"></div>
+      <div class="wave wave5"></div>
+    </section>
+
+    <script>
+      const moonArea = document.getElementById("moonArea");
+      const message = document.getElementById("message");
+
+      let state = 0;
+
+      moonArea.addEventListener("mouseenter", () => {
+        if (state === 0) moonArea.classList.add("hovered");
+      });
+      moonArea.addEventListener("mouseleave", () => {
+        if (state === 0) moonArea.classList.remove("hovered");
+      });
+
+      moonArea.addEventListener("click", () => {
+        if (state === 0) {
+          message.classList.add("show");
+          state = 1;
+        } else if (state === 1) {
+          message.classList.remove("show");
+          moonArea.classList.remove("hovered");
+          state = 0;
+        }
+      });
+
+      message.addEventListener("click", () => {
+        if (state === 1) {
+          message.classList.remove("show");
+          moonArea.classList.remove("hovered");
+          state = 0;
+        }
+      });
+    </script>
+  </body>
+</html>

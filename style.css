@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #0b0d13;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
+}
+
+section .wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 320px;
+  background: url(images/wave.svg) repeat-x;
+  background-size: 1440px 320px;
+}
+section .wave.wave1 {
+  animation: animate 50s linear infinite;
+  z-index: 1440;
+  opacity: 0.1;
+}
+section .wave.wave2 {
+  animation: animate2 15s linear infinite;
+  z-index: 1439;
+  opacity: 0.2;
+  bottom: 0.5;
+}
+section .wave.wave3 {
+  animation: animate 30s linear infinite;
+  z-index: 1438;
+  opacity: 0.3;
+  bottom: 1;
+}
+section .wave.wave4 {
+  animation: animate2 8s linear infinite;
+  z-index: 1437;
+  opacity: 0.4;
+  bottom: 2;
+}
+section .wave.wave5 {
+  animation: animate 20s linear infinite;
+  z-index: 1436;
+  opacity: 0.5;
+  bottom: 3;
+}
+@keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1440px;
+  }
+}
+@keyframes animate2 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -1440px;
+  }
+}
+
+.moon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2000;
+  transition: all 0.8s ease;
+}
+
+.moon {
+  width: 150px;
+  height: 150px;
+  background: #fffbf4;
+  border-radius: 50%;
+  box-shadow: 0 0 30px #fffbf4, 0 0 60px #fffbf4, 0 0 100px #fffbf4;
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+
+.moon-container.hovered .moon {
+  transform: translateX(-50px);
+  box-shadow: 0 0 40px #fffbf4, 0 0 80px #fffbf4, 0 0 120px #fffbf4;
+}
+
+.hi-text {
+  font-family: Arial, sans-serif;
+  font-size: 150px;
+  line-height: 150px;
+  color: #fffbf4;
+  margin-left: 20px;
+  opacity: 0;
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+.moon-container.hovered .hi-text {
+  opacity: 1;
+}
+
+.message-text {
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fffbf4;
+  font-size: 2rem;
+  font-family: monospace;
+  white-space: nowrap;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  cursor: pointer;
+}
+.message-text.show {
+  opacity: 1;
+  animation: typing 3s steps(30, end) forwards, blink 0.7s step-end infinite;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 22ch;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
