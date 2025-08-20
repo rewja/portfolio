@@ -15,6 +15,34 @@
 
       <div class="message-text" id="message">welcome to nin's area!</div>
 
+      <div class="menu" id="menu">
+        <button id="playBtn">▶</button> <button id="fishBtn">🐧</button>
+        <a href="https://github.com/rewja" target="_blank" id="discordBtn">
+          <img src="images/discord.jpg" alt="discord" />
+        </a>
+      </div>
+
+      <div class="popup" id="popup">
+        <button class="close-btn" id="closePopup">❌</button>
+        <div class="popup-emoji">o(*￣▽￣*)ブ 🐟</div>
+        <p class="popup-title">Help me catch the fish!</p>
+        <label for="playerName" class="popup-label">What is your name?</label>
+        <input type="text" id="playerName" placeholder="Enter your name" />
+        <button id="startFishing" class="big-btn">Start</button>
+      </div>
+
+      <div class="counter" id="counter">
+        <span id="fishCounter">0</span> <button id="stopFishing">⏹</button>
+      </div>
+
+      <div class="popup" id="resultPopup">
+        <button class="close-btn" id="closeResult">❌</button>
+        <div class="popup-emoji">(〃￣︶￣)人(￣︶￣〃)</div>
+        <p id="resultText"></p>
+      </div>
+
+      <div class="fish-area" id="fishArea"></div>
+
       <div class="wave wave1"></div>
       <div class="wave wave2"></div>
       <div class="wave wave3"></div>
@@ -22,37 +50,6 @@
       <div class="wave wave5"></div>
     </section>
 
-    <script>
-      const moonArea = document.getElementById("moonArea");
-      const message = document.getElementById("message");
-
-      let state = 0;
-
-      moonArea.addEventListener("mouseenter", () => {
-        if (state === 0) moonArea.classList.add("hovered");
-      });
-      moonArea.addEventListener("mouseleave", () => {
-        if (state === 0) moonArea.classList.remove("hovered");
-      });
-
-      moonArea.addEventListener("click", () => {
-        if (state === 0) {
-          message.classList.add("show");
-          state = 1;
-        } else if (state === 1) {
-          message.classList.remove("show");
-          moonArea.classList.remove("hovered");
-          state = 0;
-        }
-      });
-
-      message.addEventListener("click", () => {
-        if (state === 1) {
-          message.classList.remove("show");
-          moonArea.classList.remove("hovered");
-          state = 0;
-        }
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
