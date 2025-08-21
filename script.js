@@ -31,11 +31,9 @@ moonArea.addEventListener("click", () => {
   if (state === 0) {
     message.classList.add("show");
     menu.classList.add("show");
+    audio.play();
+    playBtn.textContent = "⏸";
     state = 1;
-  } else if (state === 1) {
-    message.classList.remove("show");
-    moonArea.classList.remove("hovered");
-    state = 0;
   }
 });
 
@@ -44,7 +42,7 @@ message.addEventListener("click", () => {
     message.classList.remove("show");
     menu.classList.remove("show");
     moonArea.classList.remove("hovered");
-    state = 0;
+    state = 0; 
   }
 });
 
@@ -111,8 +109,8 @@ function endFishing() {
 }
 closeResult.addEventListener("click", () => {
   resultPopup.classList.remove("show");
-  moonArea.classList.remove("disabled"); 
+  moonArea.classList.remove("disabled");
+  message.classList.remove("show");
+  menu.classList.remove("show");
+  state = 0;
 });
-
-
-

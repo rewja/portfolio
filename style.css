@@ -122,7 +122,9 @@ section .wave.wave5 {
   overflow: hidden;
   opacity: 0;
   cursor: pointer;
+  z-index: 3000;
 }
+
 .message-text.show {
   opacity: 1;
   animation: typing 3s steps(30, end) forwards, blink 0.7s step-end infinite;
@@ -259,8 +261,9 @@ section .wave.wave5 {
 }
 .fish-area {
   position: absolute;
+  left: 0;
   width: 100%;
-  height: 300px;
+  height: 320px;
 }
 .fish {
   position: absolute;
@@ -268,7 +271,7 @@ section .wave.wave5 {
   font-size: 40px;
   cursor: pointer;
   animation: swimUp 5s linear forwards;
-  padding: 20px;
+  padding: 20px; /* invisible padding klik area */
   box-sizing: content-box;
 }
 
