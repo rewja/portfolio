@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <section>
@@ -19,51 +19,147 @@
         <button class="menu-trigger" id="menuTrigger">?</button>
 
         <div class="menu-panel" id="menuPanel">
-          <button id="playBtn" class="menu-item" title="Play/Pause Music">▶</button>
-          <button id="fishBtn" class="menu-item" title="Fishing Game">🐧</button>
           <button id="profileBtn" class="menu-item" title="Profile">👤</button>
-          <a href="https://github.com/rewja" target="_blank" class="menu-item" title="GitHub">
-            <img src="images/discord.jpg" alt="github"/>
+          <button id="playBtn" class="menu-item" title="Play/Pause Music">
+            ▶
+          </button>
+          <button id="fishBtn" class="menu-item" title="Fishing Game">
+            🐧
+          </button>
+          <a
+            href="https://github.com/rewja"
+            target="_blank"
+            class="menu-item"
+            title="GitHub"
+          >
+            <img src="images/discord.jpg" alt="github" />
           </a>
         </div>
       </div>
 
+      <!-- Fishing Game: Name input -->
       <div class="popup" id="popup">
         <button class="close-btn" id="closePopup">❌</button>
         <div class="popup-emoji">o(*￣▽￣*)ブ 🐟</div>
         <p class="popup-title">Help me catch the fish!</p>
         <label for="playerName" class="popup-label">What is your name?</label>
-        <input type="text" id="playerName" placeholder="Enter your name"/>
+        <input type="text" id="playerName" placeholder="Enter your name" />
         <button id="startFishing" class="big-btn">Start</button>
       </div>
 
+      <!-- Fishing HUD -->
       <div class="counter" id="counter">
         <span id="fishCounter">0</span>
         <button id="stopFishing">⏹</button>
       </div>
 
+      <!-- Result -->
       <div class="popup" id="resultPopup">
         <button class="close-btn" id="closeResult">❌</button>
         <div class="popup-emoji">(〃￣︶￣)人(￣︶￣〃)</div>
         <p id="resultText"></p>
       </div>
 
-      <div class="popup glass" id="profilePopup" style="width:500px;height:400px;">
+      <!-- PROFILE: Ocean 3D Card -->
+      <div class="popup glass" id="profilePopup">
         <button class="close-btn" id="closeProfile">❌</button>
-        <div class="profile-wrap">
-          <div class="avatar">    <img src="images/profile.jpg" alt="User Avatar">
+
+        <div class="ocean-card tilt" id="oceanCard" aria-label="Profile Card">
+          <!-- Decorative ocean layers -->
+          <div class="ocean-bg">
+            <div class="ocean-gradient"></div>
+            <div class="bubbles" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="light-rim"></div>
           </div>
-          <h3>Refani Najwa</h3>
-          <h6>17 years old</h6>
-          <p> web dev • anime enjoyer</p>
-          <div class="tags">
-            <span>html</span><span>css</span><span>js</span><span>php</span><span>laravel</span><span>react</span>
+
+          <div class="ocean-content">
+            <div class="profile-header">
+              <div class="avatar ring">
+                <img src="images/profile.jpg" alt="User Avatar" />
+              </div>
+              <div class="id-block">
+                <h1>Refani Najwa</h1> -
+                <h6>17 years old </h6>
+              </div>
+            </div>
+
+            <!-- Skills: animated ocean bubbles -->
+            <div class="skills-wrap" aria-label="Programming Skills">
+              <div class="skills-title">Skills</div>
+              <div class="skills-cloud" id="skillsCloud">
+                <button class="skill-bubble float-slow">HTML</button>
+                <button class="skill-bubble float-mid">CSS</button>
+                <button class="skill-bubble float-fast">JavaScript</button>
+                <button class="skill-bubble float-mid">PHP</button>
+                <button class="skill-bubble float-slow">Laravel</button>
+                <button class="skill-bubble float-fast">React</button>
+              </div>
+            </div>
+
+            <!-- Achievements: 3D animated cards -->
+            <div class="achievements-wrap">
+              <div class="achv-title">Achievements</div>
+              <div class="achv-grid">
+                <article class="achv-card tilt-sm">
+                  <header>
+                    <span class="medal bronze" title="Bronze Medal">🥉</span>
+                    <span class="pill year">2022</span>
+                  </header>
+                  <h4>National Online Mathematics Competition</h4>
+                  <p>Bronze medalist at the national level.</p>
+                  <div class="shine"></div>
+                </article>
+
+                <article class="achv-card tilt-sm">
+                  <header>
+                    <span class="icon" aria-hidden="true">📘</span>
+                    <span class="pill year">2024</span>
+                  </header>
+                  <h4>TOEIC</h4>
+                  <p>Scored <strong>610</strong> on TOEIC.</p>
+                  <div class="shine"></div>
+                </article>
+
+                <article class="achv-card tilt-sm">
+                  <header>
+                    <span class="trophy" title="3rd Place">🏆</span>
+                    <span class="pill year">2025</span>
+                  </header>
+                  <h4>Regional Web Technology – LKS</h4>
+                  <p>3rd Place (Regional level).</p>
+                  <div class="shine"></div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Contact box (WhatsApp) -->
+            <div class="contact-box tilt-sm" aria-label="Contact">
+              <div class="contact-title">Contact</div>
+              <div class="contact-row">
+                <div class="wa-mark" aria-hidden="true">🟢</div>
+                <a
+                  id="waBtn"
+                  class="wa-btn"
+                  href="https://wa.me/6281234567890?text=Halo,%20saya%20berencana%20menggunakan%20layanan%20Anda%20pada%20tanggal%20DD%20MM%20YYYY.%20Apakah%20slot%20masih%20tersedia?%20Jika%20ya,%20mohon%20informasi%20prosedur%20selanjutnya."
+                  target="_blank"
+                  rel="noopener"
+                  >WhatsApp Me</a
+                >
+                <div class="wa-mark" aria-hidden="true">🟢</div>
+
+              </div>
+              <small class="contact-hint"
+                >Contact me if you want to know more about me</small
+              >
+            </div>
           </div>
         </div>
       </div>
 
       <div id="confettiContainer" class="confetti-container"></div>
-
       <div class="fish-area" id="fishArea"></div>
 
       <div class="wave wave1"></div>
